@@ -6,6 +6,8 @@ import "./globals.css";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { PopupWidget }  from "@/components/PopupWidget";
+import AnimatedPageWrapper from "@/components/AnimatedPageWrapper";
+import { CartProvider } from '../components/CartContext';
 
 
 const inter = Inter({ subsets: ["latin"] });
@@ -21,14 +23,16 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" suppressHydrationWarning>
-      <body className={inter.className}>
-        <ThemeProvider attribute="class">
-          <Navbar />
-          <div>{children}</div>
-          <Footer />
-          <PopupWidget />
-        </ThemeProvider>
+    <html lang="en">
+      <body>
+        <CartProvider>
+          <ThemeProvider attribute="class">
+            <Navbar />
+            <AnimatedPageWrapper>{children}</AnimatedPageWrapper>
+            <Footer />
+            <PopupWidget />
+          </ThemeProvider>
+        </CartProvider>
       </body>
     </html>
   );

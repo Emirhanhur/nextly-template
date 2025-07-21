@@ -31,7 +31,7 @@ export function Video({ videoId }: Readonly<VideoProps>) {
                 clipRule="evenodd"
               />
             </svg>
-            <span className="sr-only">Play Video</span>
+            <span className="sr-only">Videoyu Oynat</span>
           </button>
         )}
         {playVideo && (

@@ -5,13 +5,10 @@ interface ContainerProps {
   className?: string;
 }
 
-export function Container(props: Readonly<ContainerProps>) {
+export function Container({ children, className = "" }: { children: React.ReactNode, className?: string }) {
   return (
-    <div
-      className={`container p-8 mx-auto xl:px-0 ${
-        props.className ? props.className : ""
-      }`}>
-      {props.children}
+    <div className={`max-w-7xl mx-auto px-4 md:px-8 py-10 md:py-16 w-full ${className}`}>
+      {children}
     </div>
   );
 }
