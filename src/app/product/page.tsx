@@ -23,7 +23,12 @@ interface Category {
 const PLACEHOLDER_IMG = 'https://via.placeholder.com/400x250?text=No+Image';
 const BASE_URL = 'http://localhost:3001';
 
-export default async function ProductPage({ searchParams }: PageProps) {
+// types.ts yerine burada PageProps'u override ediyorum:
+interface ProductPageProps {
+  searchParams?: { [key: string]: string | string[] | undefined; category?: string };
+}
+
+export default async function ProductPage({ searchParams }: ProductPageProps) {
   let products: any[] = [];
   let categories: Category[] = [];
   let error = null;
